@@ -24,12 +24,12 @@ import { getFirestore } from "firebase/firestore";
 export { GoogleAuthProvider, FacebookAuthProvider, OAuthProvider };
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDCui8XdMXhdU5y9KoW5OdQ5JTo4KY9GC0",
-  authDomain: "gen-lang-client-0482112753.firebaseapp.com",
-  projectId: "gen-lang-client-0482112753",
-  storageBucket: "gen-lang-client-0482112753.firebasestorage.app",
-  messagingSenderId: "29380579589",
-  appId: "1:29380579589:web:ff2840fe9ed5a6a773676c"
+  apiKey: "AIzaSyCgTlYD-HrRGbw7moSTodYxsKgx-X5er2k",
+  authDomain: "galaxy-store-2cd1a.firebaseapp.com",
+  projectId: "galaxy-store-2cd1a",
+  storageBucket: "galaxy-store-2cd1a.firebasestorage.app",
+  messagingSenderId: "971159731728",
+  appId: "1:971159731728:web:336422f9d155b0f9281495"
 };
 
 export const app = initializeApp(firebaseConfig);
