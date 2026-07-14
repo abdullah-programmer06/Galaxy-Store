@@ -1,0 +1,40 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    function isSuperAdmin() {
+      return request.auth != null && request.auth.token.email == 'abubokkorbaqi@gmail.com';
+    }
+
+    match /config/{document=**} {
+      allow read: if true;
+      allow write: if isSuperAdmin();
+    }
+    
+    match /products/{document=**} {
+      allow read: if true;
+      allow write: if isSuperAdmin();
+    }
+    
+    match /home_sections/{document=**} {
+      allow read: if true;
+      allow write: if isSuperAdmin();
+    }
+
+    match /orders/{orderId} {
+      // Allowed read to everyone because the frontend queries all orders by default
+      allow read: if true;
+      // Any logged in user can place an order
+      allow create: if request.auth != null;
+      // Allow update for logged in users (since moderators need it, and they aren't superadmins)
+      allow update: if request.auth != null;
+      // Only super admin can delete
+      allow delete: if isSuperAdmin();
+    }
+    
+    // Default fallback
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
