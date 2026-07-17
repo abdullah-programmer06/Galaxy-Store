@@ -1,6 +1,0 @@
-{
-  "name": "Galaxy Store",
-  "description": "High-Octane Digital Delivery for games, software, and gift cards.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
