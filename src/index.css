@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Rajdhani", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Orbitron", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: #070721;
+  --color-on-background: #fafafa;
+  --color-surface: #070721;
+  --color-surface-dim: #070721;
+  --color-surface-bright: #1e1d38;
+  --color-surface-container-lowest: #070721;
+  --color-surface-container-low: #1e1d38;
+  --color-surface-container: #1e1d38;
+  --color-surface-container-high: #1e1d38;
+  --color-surface-container-highest: #1e1d38;
+  --color-on-surface: #fafafa;
+  --color-on-surface-variant: #d4d4d8;
+  --color-outline: #52525b;
+  --color-outline-variant: #27272a;
+
+  /* Cyberpunk Cyan */
+  --color-primary: #ffffff;
+  --color-on-primary: #070721;
+  --color-primary-container: #004d40;
+  --color-on-primary-container: #070721;
+  --color-primary-fixed: #1e1d38;
+  --color-primary-fixed-dim: #1e1d38;
+  --color-on-primary-fixed: #070721;
+  --color-on-primary-fixed-variant: #00363a;
+
+  /* Cyberpunk Magenta/Pink */
+  --color-secondary: #ffffff;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #1e1d38;
+  --color-on-secondary-container: #ffffff;
+  --color-secondary-fixed: #1e1d38;
+  --color-secondary-fixed-dim: #1e1d38;
+  --color-on-secondary-fixed: #ffffff;
+  --color-on-secondary-fixed-variant: #4a0016;
+
+  --color-error: #ff3333;
+  --color-on-error: #ffffff;
+
+  --spacing-margin-mobile: 20px;
+  --spacing-margin-desktop: 64px;
+  --spacing-container-max: 1440px;
+  --spacing-gutter: 24px;
+
+  --text-label-sm: 12px;
+  --text-label-sm--line-height: 16px;
+  --text-label-sm--letter-spacing: 0.05em;
+  --text-label-sm--font-weight: 600;
+  --text-label-sm--font-family: var(--font-display);
+
+  --text-label-md: 14px;
+  --text-label-md--line-height: 20px;
+  --text-label-md--font-weight: 600;
+  --text-label-md--font-family: var(--font-display);
+
+  --text-label-lg: 16px;
+  --text-label-lg--line-height: 24px;
+  --text-label-lg--font-weight: 600;
+  --text-label-lg--font-family: var(--font-display);
+
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 20px;
+  --text-body-sm--font-weight: 400;
+
+  --text-body-md: 16px;
+  --text-body-md--line-height: 24px;
+  --text-body-md--font-weight: 400;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 28px;
+  --text-body-lg--font-weight: 400;
+
+  --text-headline-sm: 20px;
+  --text-headline-sm--line-height: 28px;
+  --text-headline-sm--font-weight: 700;
+  --text-headline-sm--font-family: var(--font-display);
+
+  --text-headline-md: 24px;
+  --text-headline-md--line-height: 32px;
+  --text-headline-md--letter-spacing: -0.01em;
+  --text-headline-md--font-weight: 700;
+  --text-headline-md--font-family: var(--font-display);
+
+  --text-display-sm: 36px;
+  --text-display-sm--line-height: 44px;
+  --text-display-sm--font-weight: 700;
+  --text-display-sm--font-family: var(--font-display);
+
+  --text-display-md: 48px;
+  --text-display-md--line-height: 56px;
+  --text-display-md--font-weight: 700;
+  --text-display-md--font-family: var(--font-display);
+
+  --text-display-lg-mobile: 40px;
+  --text-display-lg-mobile--line-height: 48px;
+  --text-display-lg-mobile--letter-spacing: -0.02em;
+  --text-display-lg-mobile--font-weight: 700;
+  --text-display-lg-mobile--font-family: var(--font-display);
+
+  --text-display-lg: 64px;
+  --text-display-lg--line-height: 72px;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--font-weight: 700;
+  --text-display-lg--font-family: var(--font-display);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface antialiased overflow-x-hidden min-h-screen flex flex-col;
+    background-color: var(--color-background);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-container-highest);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dim);
+}
+
+@layer utilities {
+  .glass-panel {
+    background-color: rgba(24, 24, 27, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .glass-panel:hover {
+    background-color: rgba(39, 39, 42, 0.5);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px var(--color-primary);
+  }
+
+  .text-glow-secondary {
+    text-shadow: 0 0 20px var(--color-secondary);
+  }
+
+  .neon-glow:hover {
+    box-shadow: 0 0 30px -5px var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .tech-clip {
+    clip-path: polygon(
+      15px 0,
+      100% 0,
+      100% calc(100% - 15px),
+      calc(100% - 15px) 100%,
+      0 100%,
+      0 15px
+    );
+  }
+
+  .tech-clip-btn {
+    clip-path: polygon(
+      10px 0,
+      100% 0,
+      100% calc(100% - 10px),
+      calc(100% - 10px) 100%,
+      0 100%,
+      0 10px
+    );
+  }
+}
+
+@layer base {
+}
+
+@layer base {
+  select option {
+    background-color: #110c24;
+    color: white;
+  }
+}
